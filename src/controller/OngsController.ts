@@ -72,7 +72,7 @@ export default {
             whats_app: Yup.string().nullable(),
             facebook:  Yup.string().nullable(),
             images: Yup.array(Yup.object().shape({
-                path: Yup.string().required()
+                path: Yup.string().required() 
             }))
         })
 
