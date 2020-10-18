@@ -1,4 +1,4 @@
-import { Entity, Column, PrimaryGeneratedColumn , ManyToOne, ManyToMany, JoinColumn} from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn , ManyToOne, JoinColumn} from 'typeorm';
 import Ong from './Ongs'
 
 @Entity('images')

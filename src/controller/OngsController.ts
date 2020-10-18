@@ -1,6 +1,5 @@
 import { getRepository } from 'typeorm';
 import { Request, Response} from 'express';
-import OngView from '../views/OngsView';
 import  Ongs from '../models/Ongs';
 import OngsView from '../views/OngsView';
 import * as Yup from 'yup';
@@ -34,7 +33,9 @@ export default {
             about, 
             instructions, 
             opening_hours, 
-            open_on_weekends
+            open_on_weekends,
+            whats_app,
+            facebook
         } = request.body;
         
         const ongRepository = getRepository(Ongs);
@@ -51,9 +52,14 @@ export default {
             about, 
             instructions, 
             opening_hours, 
-            open_on_weekends,    
+            open_on_weekends,  
+            whats_app,
+            facebook,  
             images
         };
+       
+       /*  const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
+        whats_app: Yup.string().matches(phoneRegExp, "Phone number is not valid").nullable() */
 
         const schema = Yup.object().shape({
             name: Yup.string().required(),
@@ -63,6 +69,8 @@ export default {
             instructions: Yup.string().required(),
             opening_hours: Yup.string().required(),
             open_on_weekends: Yup.boolean().required(),
+            whats_app: Yup.string().nullable(),
+            facebook:  Yup.string().nullable(),
             images: Yup.array(Yup.object().shape({
                 path: Yup.string().required()
             }))
@@ -75,7 +83,9 @@ export default {
             about, 
             instructions, 
             opening_hours, 
-            open_on_weekends,    
+            open_on_weekends,  
+            whats_app,
+            facebook,   
             images
         });
 

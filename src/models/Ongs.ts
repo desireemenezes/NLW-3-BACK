@@ -23,10 +23,16 @@ export default class Ongs {
     instructions: string;
 
     @Column()
-    opening_hours: string
+    opening_hours: string;
 
     @Column()
     open_on_weekends: boolean;
+
+    @Column()
+    whats_app: number;
+
+    @Column()
+    facebook: string;
     
     @OneToMany(() => Image, image => image.ong, {
         cascade: ['insert','update']

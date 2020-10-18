@@ -11,6 +11,8 @@ export default {
             instructions: ong.instructions,
             opening_hours: ong.opening_hours,
             open_on_weekends: ong.open_on_weekends,
+            whats_app:ong.whats_app,
+            facebook: ong.facebook,
             images: ImagesView.renderMany(ong.images)
         }
     },
